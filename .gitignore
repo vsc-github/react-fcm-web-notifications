@@ -1,0 +1,15 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# package manager files
+package-lock.json
+npm-debug.log
+yarn.lock
+yarn-error.log
+
+# misc
+.DS_Store
+.idea
+build

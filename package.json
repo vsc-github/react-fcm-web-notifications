@@ -1,0 +1,50 @@
+{
+  "name": "simplest-offline-react-redux-starter",
+  "homepage": "https://vsc-github.github.io/simplest-offline-react-redux-starter/",
+  "version": "1.0.0",
+  "description": "Simplest Offline React Router Starter Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://vsc-github.github.io/simplest-offline-react-redux-starter/"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "redux",
+    "react-router",
+    "webpack",
+    "boilerplate",
+    "create-react-app",
+    "PWA",
+    "Progressive Web Apps",
+    "template",
+    "starter",
+    "simple"
+  ],
+  "author": "Vishwas Singh Chouhan (https://github.com/vsc-github)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vsc-github/simplest-offline-react-redux-starter/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0",
+    "react-scripts": "1.0.7"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.7.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy:github": "node github-deploy.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
