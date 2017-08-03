@@ -43,6 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy:local": "node server.js",
     "deploy:github": "node github-deploy.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
