@@ -43,3 +43,16 @@ export function notifyMeAction(fcm) {
       });
   }
 }
+
+export function notifyMeWithDelayAction(fcm) {
+
+  return dispatch => {
+      axios.get('http://localhost:8080/api/notify-with-delay/'+fcm).then(res=>{
+          dispatch(notificationSentStatusAction("Success"));
+      }).catch((e) => {
+          console.log("Notifying via fcm failed!!", e);
+          dispatch(notificationSentStatusAction("Failed"));
+          return { error: e }
+      });
+  }
+}
