@@ -5,7 +5,8 @@ import {
     incrementUsersAction,
     decrementUsersAction,
     setUsers,
-    notifyMeAction
+    notifyMeAction,
+    notifyMeWithDelayAction
 } from "../../actions/users";
 
 import "./home.css";
@@ -18,6 +19,7 @@ class Home extends Component {
         this.decrementUsers = this.decrementUsers.bind(this);
         this.setUsers = this.setUsers.bind(this);
         this.notifyMe = this.notifyMe.bind(this);
+        this.notifyMeWithDelay = this.notifyMeWithDelay.bind(this);
     }
 
     incrementUsers() {
@@ -40,6 +42,11 @@ class Home extends Component {
         dispatch(notifyMeAction("cVE7cjmnmSU:APA91bHAnuvYp_0wbHIA5BaA6z6E_DaLLUDstnKfTU7RlKykAFLJWQdyDF2iV2gtZygmPnuYox0dwgLgjQlnqNBfz9IW2JTXip5Ms6ui44Vq9sao_0YPnxaxdPgtZ5dXrjRxhxRo50vB"));
     }
 
+    notifyMeWithDelay(){
+        const { dispatch } = this.props;
+        dispatch(notifyMeWithDelayAction("cVE7cjmnmSU:APA91bHAnuvYp_0wbHIA5BaA6z6E_DaLLUDstnKfTU7RlKykAFLJWQdyDF2iV2gtZygmPnuYox0dwgLgjQlnqNBfz9IW2JTXip5Ms6ui44Vq9sao_0YPnxaxdPgtZ5dXrjRxhxRo50vB"));
+    }
+
     render() {
         return (
             <div>
@@ -48,6 +55,7 @@ class Home extends Component {
                 <button onClick={()=>this.decrementUsers()}>DECREMENT</button>
                 <button onClick={()=>this.setUsers()}>Turn to 394!</button>
                 <button onClick={()=>this.notifyMe()}>Notify me!</button>
+                <button onClick={()=>this.notifyMeWithDelay()}>Notify me with delay!</button>
             </div>
         );
     }
