@@ -26,9 +26,9 @@ function notify(res, to) {
     var key = 'AAAAaxzCIxA:APA91bEjujdjrAqHhPb9MWtEpaMCKxa0i--K4KPfR5dtXqkhlmbtLOqm705_-NJ6kUOYqRwOBvurJId9yyr2UNkClgltWARrjYlcByXGE5wjaIMdBNZLf8irwiubOej79v461wnHJrM78LoZkRyLW4Wp2cNRYS1Vcg';
     to = "f1WEClQziU4:APA91bENUyx_79nE1c8lEXnHfzu38SlkqIF0c0FrrHw58SR0byKRrf3WNhU_h82QkOMexLKOaJfakGsh7cDViKGD39RpP-1I_TZfsLyANKo1qRp5pT68L8wN-QlxXPnvZFksUh7kqbqY";
     var notification = {
-        'title': 'Portugal vs. Denmark',
-        'body': '5 to 1',
-        'icon': 'firebase-logo.png',
+        'title': 'Wow! This works like a charm.',
+        'body': 'What sorcery is this?',
+        'icon': 'https://cdn.dextra.art/website/assets/1501776716680-image.jpg',
         'click_action': 'http://localhost:8080'
     };
 
