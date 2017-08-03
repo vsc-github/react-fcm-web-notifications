@@ -7,9 +7,19 @@ var request = require('request');
 var server = express();
 
 server.get('/api/notify/:fcm', function(req, res){
-    console.log("REQUEST",req.params);
-    var key = 'AAAAaxzCIxA:APA91bEjujdjrAqHhPb9MWtEpaMCKxa0i--K4KPfR5dtXqkhlmbtLOqm705_-NJ6kUOYqRwOBvurJId9yyr2UNkClgltWARrjYlcByXGE5wjaIMdBNZLf8irwiubOej79v461wnHJrM78LoZkRyLW4Wp2cNRYS1Vcg';
     var to = req.params.fcm;
+    return notify(res,to);
+});
+
+server.get('/api/notify-with-delay/:fcm',function (req,res) {
+    var to = req.params.fcm;
+    return notify(res,to);
+})
+
+server.use('/', express.static(__dirname + '/build'));
+
+function notify(res,to) {
+    var key = 'AAAAaxzCIxA:APA91bEjujdjrAqHhPb9MWtEpaMCKxa0i--K4KPfR5dtXqkhlmbtLOqm705_-NJ6kUOYqRwOBvurJId9yyr2UNkClgltWARrjYlcByXGE5wjaIMdBNZLf8irwiubOej79v461wnHJrM78LoZkRyLW4Wp2cNRYS1Vcg';
     to = "f1WEClQziU4:APA91bENUyx_79nE1c8lEXnHfzu38SlkqIF0c0FrrHw58SR0byKRrf3WNhU_h82QkOMexLKOaJfakGsh7cDViKGD39RpP-1I_TZfsLyANKo1qRp5pT68L8wN-QlxXPnvZFksUh7kqbqY";
     var notification = {
         'title': 'Portugal vs. Denmark',
@@ -39,8 +49,6 @@ server.get('/api/notify/:fcm', function(req, res){
             res.status(200).send(body);
         }
     });
-});
-
-server.use('/', express.static(__dirname + '/build'));
+}
 
 server.listen(8080);
