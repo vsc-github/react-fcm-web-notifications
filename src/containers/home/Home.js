@@ -2,9 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import Users from '../../components/user/Users';
 import {
-    incrementUsersAction,
-    decrementUsersAction,
-    setUsers,
     notifyMeAction,
     notifyMeWithDelayAction
 } from "../../actions/users";
@@ -15,26 +12,8 @@ class Home extends Component {
 
     constructor() {
         super();
-        this.incrementUsers = this.incrementUsers.bind(this);
-        this.decrementUsers = this.decrementUsers.bind(this);
-        this.setUsers = this.setUsers.bind(this);
         this.notifyMe = this.notifyMe.bind(this);
         this.notifyMeWithDelay = this.notifyMeWithDelay.bind(this);
-    }
-
-    incrementUsers() {
-        const { dispatch } = this.props;
-        dispatch(incrementUsersAction());
-    }
-
-    decrementUsers() {
-        const { dispatch } = this.props;
-        dispatch(decrementUsersAction());
-    }
-
-    setUsers() {
-        const { dispatch } = this.props;
-        dispatch(setUsers(394));
     }
 
     notifyMe(){
@@ -51,9 +30,6 @@ class Home extends Component {
         return (
             <div>
                 <Users users={this.props.users}/>
-                <button onClick={()=>this.incrementUsers()}>INCREMENT</button>
-                <button onClick={()=>this.decrementUsers()}>DECREMENT</button>
-                <button onClick={()=>this.setUsers()}>Turn to 394!</button>
                 <button onClick={()=>this.notifyMe()}>Notify me!</button>
                 <button onClick={()=>this.notifyMeWithDelay()}>Notify me with delay!</button>
             </div>

@@ -24,7 +24,7 @@ server.use('/', express.static(__dirname + '/build'));
 
 function notify(res, to) {
     var key = 'AAAAaxzCIxA:APA91bEjujdjrAqHhPb9MWtEpaMCKxa0i--K4KPfR5dtXqkhlmbtLOqm705_-NJ6kUOYqRwOBvurJId9yyr2UNkClgltWARrjYlcByXGE5wjaIMdBNZLf8irwiubOej79v461wnHJrM78LoZkRyLW4Wp2cNRYS1Vcg';
-    to = "f1WEClQziU4:APA91bENUyx_79nE1c8lEXnHfzu38SlkqIF0c0FrrHw58SR0byKRrf3WNhU_h82QkOMexLKOaJfakGsh7cDViKGD39RpP-1I_TZfsLyANKo1qRp5pT68L8wN-QlxXPnvZFksUh7kqbqY";
+    to = "e8wUWuFtJyk:APA91bFxS-kINo7WK_3Um4rTPGlSKacZv4jUBhOy637yA4XrRR9pqQpLG9fD3gmZGULXiQNbvCz2DNlM4bICF6TqIXbg-SjgLONCCoYSTGM0kfYjvzA6aWAbOOCP1NC0O593dTQsAWQ1";
     var notification = {
         'title': 'Wow! This works like a charm.',
         'body': 'What sorcery is this?',
