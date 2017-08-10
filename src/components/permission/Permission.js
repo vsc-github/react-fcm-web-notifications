@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Users = ( {users} ) => {
+const Permission = ( {requestPermissionFunc} ) => {
   return <div>
-      {
-        'Users of type ' + users.type + ' are ' + users.count
-      }
+      <div onClick={requestPermissionFunc}>Ask for permission!</div>
   </div>
 };
 
-Users.propTypes = {
-  user: PropTypes.object
+Permission.propTypes = {
+    requestPermissionFunc: PropTypes.func
 };
 
-export default Users;
+export default Permission;
