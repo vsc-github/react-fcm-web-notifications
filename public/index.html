@@ -94,9 +94,31 @@
         // - the user clicks on an app notification created by a sevice worker
         //   `messaging.setBackgroundMessageHandler` handler.
         const messaging = firebase.messaging();
+
+        // RECEIVE NOTIFICATION IN THE WEBAPP
+
+        /*messaging.onMessage(function(payload) {
+            console.log("Message received. ", payload);
+        });*/
+
+        // SHOW NOTIFICATION EVEN WHEN APP IS IN FOREGROUND
+
         messaging.onMessage(function(payload) {
             console.log("Message received. ", payload);
-            // ...
+            self.navigator.serviceWorker.getRegistrations().then((registrations) => {
+                if (registrations.length === 0) {
+                    // No service workers registered
+                    return;
+                }
+                else{
+                    const notificationTitle = payload.notification.title;
+                    const notificationOptions = {
+                        body: payload.notification.body,
+                        icon: payload.notification.icon
+                    };
+                    registrations[1].showNotification(notificationTitle, notificationOptions);
+                }
+            });
         });
 
     </script>
