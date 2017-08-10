@@ -1,34 +1,36 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import {createStore, applyMiddleware, combineReducers, compose} from "redux";
 import thunkMiddleware from "redux-thunk";
-import { createLogger } from "redux-logger";
-import { users } from "../reducers/users";
+import {createLogger} from "redux-logger";
+import {users} from "../reducers/users";
+import {fcm} from "../reducers/fcm";
 
 const logger = createLogger();
 const rootReducer = combineReducers({
-  users
+    users,
+    fcm
 });
 
 const initialState = {};
 
 export default function configureStore() {
-  let store;
+    let store;
 
-  if (module.hot) {
-    store = createStore(
-      rootReducer,
-      initialState,
-      compose(
-        applyMiddleware(thunkMiddleware, logger),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
-      )
-    );
-  } else {
-    store = createStore(
-      rootReducer,
-      initialState,
-      compose(applyMiddleware(thunkMiddleware), f => f)
-    );
-  }
+    if (module.hot) {
+        store = createStore(
+            rootReducer,
+            initialState,
+            compose(
+                applyMiddleware(thunkMiddleware, logger),
+                window.devToolsExtension ? window.devToolsExtension() : f => f
+            )
+        );
+    } else {
+        store = createStore(
+            rootReducer,
+            initialState,
+            compose(applyMiddleware(thunkMiddleware), f => f)
+        );
+    }
 
-  return store;
+    return store;
 }
