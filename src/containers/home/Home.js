@@ -26,13 +26,21 @@ class Home extends Component {
     }
 
     notifyMe(){
-        const { dispatch } = this.props;
-        dispatch(notifyMeAction("cVE7cjmnmSU:APA91bHAnuvYp_0wbHIA5BaA6z6E_DaLLUDstnKfTU7RlKykAFLJWQdyDF2iV2gtZygmPnuYox0dwgLgjQlnqNBfz9IW2JTXip5Ms6ui44Vq9sao_0YPnxaxdPgtZ5dXrjRxhxRo50vB"));
+        const { dispatch, fcm } = this.props;
+        if(fcm !== null){
+            dispatch(notifyMeAction(fcm.fcmToken));
+        }else{
+            console.log("FCM token not found.");
+        }
     }
 
     notifyMeWithDelay(){
-        const { dispatch } = this.props;
-        dispatch(notifyMeWithDelayAction("cVE7cjmnmSU:APA91bHAnuvYp_0wbHIA5BaA6z6E_DaLLUDstnKfTU7RlKykAFLJWQdyDF2iV2gtZygmPnuYox0dwgLgjQlnqNBfz9IW2JTXip5Ms6ui44Vq9sao_0YPnxaxdPgtZ5dXrjRxhxRo50vB"));
+        const { dispatch, fcm } = this.props;
+        if(fcm !== null){
+            dispatch(notifyMeWithDelayAction(fcm.fcmToken));
+        }else{
+            console.log("FCM token not found.");
+        }
     }
 
     requestPermission(){
@@ -85,9 +93,10 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-    const {users} = state;
+    const { users, fcm } = state;
     return {
-        users
+        users,
+        fcm
     };
 };
 
