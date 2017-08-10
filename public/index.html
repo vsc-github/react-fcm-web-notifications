@@ -45,7 +45,7 @@
             messagingSenderId: "460043985680"
         };
         firebase.initializeApp(config);
-
+/*
         // Retrieve Firebase Messaging object.
         const messaging = firebase.messaging();
 
@@ -87,12 +87,13 @@
                     console.log('Error retrieving Instance ID token. ', err);
                     // send false to server
                 });
-        }
+        }*/
 
         // Handle incoming messages. Called when:
         // - a message is received while the app has focus
         // - the user clicks on an app notification created by a sevice worker
         //   `messaging.setBackgroundMessageHandler` handler.
+        const messaging = firebase.messaging();
         messaging.onMessage(function(payload) {
             console.log("Message received. ", payload);
             // ...
