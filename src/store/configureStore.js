@@ -1,12 +1,10 @@
 import {createStore, applyMiddleware, combineReducers, compose} from "redux";
 import thunkMiddleware from "redux-thunk";
 import {createLogger} from "redux-logger";
-import {users} from "../reducers/users";
 import {fcm} from "../reducers/fcm";
 
 const logger = createLogger();
 const rootReducer = combineReducers({
-    users,
     fcm
 });
 
