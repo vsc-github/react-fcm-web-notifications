@@ -1,13 +1,12 @@
+/*global firebase*/
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import Users from '../../components/user/Users';
 import Permission from '../../components/permission/Permission';
 import {
     notifyMeAction,
     notifyMeWithDelayAction,
     updateFcmTokenAction
 } from "../../actions/users";
-/*global firebase*/
 import "./home.css";
 
 class Home extends Component {
@@ -83,7 +82,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Users users={this.props.users}/>
                 <Permission requestPermissionFunc={this.requestPermission}/>
                 <button onClick={()=>this.notifyMe()}>Notify me!</button>
                 <button onClick={()=>this.notifyMeWithDelay()}>Notify me with delay!</button>
@@ -93,9 +91,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-    const { users, fcm } = state;
+    const { fcm } = state;
     return {
-        users,
         fcm
     };
 };
