@@ -19,7 +19,7 @@ export function notificationSentStatusAction(status) {
 export function notifyMeAction(fcm) {
 
     return dispatch => {
-        axios.get('http://localhost:8080/api/notify/' + fcm).then(res => {
+        axios.get(`${process.env.PUBLIC_URL}/api/notify/${fcm}`).then(res => {
             dispatch(notificationSentStatusAction("Success"));
         }).catch((e) => {
             console.log("Notifying via fcm failed!!", e);
@@ -32,7 +32,7 @@ export function notifyMeAction(fcm) {
 export function notifyMeWithDelayAction(fcm) {
 
     return dispatch => {
-        axios.get('http://localhost:8080/api/notify-with-delay/' + fcm).then(res => {
+        axios.get(`${process.env.PUBLIC_URL}/api/notify-with-delay/${fcm}`).then(res => {
             dispatch(notificationSentStatusAction("Success"));
         }).catch((e) => {
             console.log("Notifying via fcm failed!!", e);
