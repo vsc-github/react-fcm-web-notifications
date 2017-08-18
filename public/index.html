@@ -45,7 +45,7 @@
             messagingSenderId: "460043985680"
         };
         firebase.initializeApp(config);
-        
+
         const messaging = firebase.messaging();
 
         // SHOW NOTIFICATION EVEN WHEN APP IS IN FOREGROUND
@@ -63,6 +63,7 @@
                         body: payload.notification.body,
                         icon: payload.notification.icon
                     };
+                    // registration[1] refers to firebase service worker , registration[0] is create-react-app service worker
                     registrations[1].showNotification(notificationTitle, notificationOptions);
                 }
             });
