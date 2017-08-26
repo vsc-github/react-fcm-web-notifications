@@ -1,0 +1,9 @@
+.permission{
+    height: 5rem;
+    margin-top: 2rem;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

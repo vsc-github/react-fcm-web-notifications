@@ -27,19 +27,19 @@ class Home extends Component {
 
     notifyMe(){
         const { dispatch, fcm } = this.props;
-        if(fcm !== null){
+        if(fcm.fcmToken !== null){
             dispatch(notifyMeAction(fcm.fcmToken));
         }else{
-            console.log("FCM token not found.");
+            alert("FCM token not found. Generate Token by clicking the button above.");
         }
     }
 
     notifyMeWithDelay(){
         const { dispatch, fcm } = this.props;
-        if(fcm !== null){
+        if(fcm.fcmToken !== null){
             dispatch(notifyMeWithDelayAction(fcm.fcmToken));
         }else{
-            console.log("FCM token not found.");
+            console.log("FCM token not found. Generate Token by clicking the button above.");
         }
     }
 
@@ -83,12 +83,22 @@ class Home extends Component {
     render() {
         return (
             <div className="container">
+                <div className="info">
+                    <span>There are four states possible:</span>
+                        <ul>
+                            <li>Permission Denied.</li>
+                            <li>Permission Granted.</li>
+                            <li>Permission Granted but no Token Generated.</li>
+                            <li>Permission Granted & Token Generated.</li>
+                        </ul>
+                </div>
                 <Permission
                     fcmToken={ this.props.fcm.fcmToken }
                     requestPermissionFunc={this.requestPermission}
                     getTokenFunc={this.getToken}
                 />
                 <Actions
+                    fcmToken={ this.props.fcm.fcmToken }
                     notifyMeWithDelayFunc={this.notifyMeWithDelay}
                     notifyMeFunc={this.notifyMe}
                 />

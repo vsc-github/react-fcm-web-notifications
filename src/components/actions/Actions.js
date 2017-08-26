@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Actions = ( { notifyMeFunc, notifyMeWithDelayFunc } ) => {
+import './actions.css';
+
+const Actions = ( { fcmToken, notifyMeFunc, notifyMeWithDelayFunc } ) => {
 
     return <div className="actions">
-        <button onClick={notifyMeFunc}>Notify me!</button>
-        <button onClick={notifyMeWithDelayFunc}>Notify me with delay!</button>
+        <button onClick={notifyMeFunc} className={fcmToken===null?'disabled':''} >Notify me!</button>
+        <button onClick={notifyMeWithDelayFunc} className={fcmToken===null?'disabled':''} >Notify me with delay!</button>
     </div>
 };
 

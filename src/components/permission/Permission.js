@@ -1,18 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./permission.css";
+
 const Permission = ( { fcmToken, requestPermissionFunc, getTokenFunc } ) => {
 
     if(Notification.permission !== 'granted'){
-        return <button onClick={ requestPermissionFunc }>Ask for permission!</button>
-
+        return <div className="permission">
+            <button onClick={ requestPermissionFunc }>Ask for permission!</button>
+        </div>
     }
     else if(Notification.permission === 'granted' && fcmToken === null){
-        return <button onClick={ getTokenFunc }>Generate Token!</button>
+        return <div className="permission">
+            <button onClick={ getTokenFunc }>Generate Token!</button>
+            </div>
     }
     else{
-        return <div>
-            You have the permission & the token, send notifications!!
+        return <div className="permission">
+            Permission Granted & Token Generated.
+            You can send notificatons now!
         </div>
     }
 };

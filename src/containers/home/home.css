@@ -1,3 +1,9 @@
+.info{
+    margin-top: 3rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 button{
     display: inline-flex;
     position: relative;
@@ -14,4 +20,10 @@ button{
     user-select: none;
     transition: all .3s cubic-bezier(.175,.885,.32,1.275);
     border: 0;
+    margin: 0 .5rem;
+}
+
+.disabled{
+    background-color: #a9a9a9;
+    cursor: not-allowed;
 }
