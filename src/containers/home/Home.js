@@ -48,7 +48,7 @@ class Home extends Component {
                 console.log('Notification permission granted.');
                 // TODO(developer): Retrieve an Instance ID token for use with FCM.
                 // ...
-                this.getToken();
+                // this.getToken();  WE ARE MAKING THIS MANUAL FOR THE EXAMPLE
             })
             .catch(function(err) {
                 console.log('Unable to get permission to notify.', err);
@@ -82,7 +82,11 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Permission requestPermissionFunc={this.requestPermission}/>
+                <Permission
+                    fcmToken={ this.props.fcm.fcmToken }
+                    requestPermissionFunc={this.requestPermission}
+                    getTokenFunc={this.getToken}
+                />
                 <button onClick={()=>this.notifyMe()}>Notify me!</button>
                 <button onClick={()=>this.notifyMeWithDelay()}>Notify me with delay!</button>
             </div>
