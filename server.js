@@ -53,5 +53,5 @@ function notify(res, to) {
         }
     });
 }
-
-server.listen(8080);
+var port = process.env.PORT || 8080;
+server.listen(port);
