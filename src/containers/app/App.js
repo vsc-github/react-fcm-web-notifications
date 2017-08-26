@@ -18,16 +18,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <div className="container">
-            <div className="appContent">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route component={NotFound} />
               </Switch>
-            </div>
-          </div>
-        </div>
       </Router>
     );
   }
