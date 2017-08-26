@@ -2,6 +2,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Permission from '../../components/permission/Permission';
+import Actions from '../../components/actions/Actions';
 import {
     notifyMeAction,
     notifyMeWithDelayAction,
@@ -87,8 +88,10 @@ class Home extends Component {
                     requestPermissionFunc={this.requestPermission}
                     getTokenFunc={this.getToken}
                 />
-                <button onClick={()=>this.notifyMe()}>Notify me!</button>
-                <button onClick={()=>this.notifyMeWithDelay()}>Notify me with delay!</button>
+                <Actions
+                    notifyMeWithDelayFunc={this.notifyMeWithDelay}
+                    notifyMeFunc={this.notifyMe}
+                />
             </div>
         );
     }
