@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="manifest" href="./manifest.json"><link rel="shortcut icon" href="./favicon.ico"><title>React Redux Starter Kit</title><link href="./static/css/main.7f976633.css" rel="stylesheet"></head><body><div id="root"></div><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script><script>// Initiaize firebase
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="manifest" href="./manifest.json"><link rel="shortcut icon" href="./favicon.ico"><title>React Redux Starter Kit</title><link href="./static/css/main.4366cbb4.css" rel="stylesheet"></head><body><div id="root"></div><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script><script>// Initiaize firebase
         var config = {
             apiKey: "AIzaSyCS-NgT9Zo8B0QcxxN4KxlsvHY50j5WDso",
             authDomain: "dextra-app.firebaseapp.com",
@@ -8,61 +8,8 @@
             messagingSenderId: "460043985680"
         };
         firebase.initializeApp(config);
-/*
-        // Retrieve Firebase Messaging object.
+
         const messaging = firebase.messaging();
-
-        requestPermission();
-
-        // ask user permission to show notifications
-        function requestPermission() {
-            messaging.requestPermission()
-                .then(function() {
-                    console.log('Notification permission granted.');
-                    // TODO(developer): Retrieve an Instance ID token for use with FCM.
-                    // ...
-                    getToken();
-                })
-                .catch(function(err) {
-                    console.log('Unable to get permission to notify.', err);
-                });
-        }
-
-
-        // Get token after permission
-        function getToken() {
-            // [START get_token]
-            // Get Instance ID token. Initially this makes a network call, once retrieved
-            // subsequent calls to getToken will return from cache.
-            messaging.getToken()
-                .then(function(currentToken) {
-                    if (currentToken) {
-                        console.log("Token received: ", currentToken);
-                        //send token to the server
-                    } else {
-                        // Show permission request.
-                        console.log('No Instance ID token available. Request permission to generate one.');
-                        requestPermission();
-                    }
-                })
-                .catch(function(err) {
-                    console.log('An error occurred while retrieving token. ', err);
-                    console.log('Error retrieving Instance ID token. ', err);
-                    // send false to server
-                });
-        }*/
-
-        // Handle incoming messages. Called when:
-        // - a message is received while the app has focus
-        // - the user clicks on an app notification created by a sevice worker
-        //   `messaging.setBackgroundMessageHandler` handler.
-        const messaging = firebase.messaging();
-
-        // RECEIVE NOTIFICATION IN THE WEBAPP
-
-        /*messaging.onMessage(function(payload) {
-            console.log("Message received. ", payload);
-        });*/
 
         // SHOW NOTIFICATION EVEN WHEN APP IS IN FOREGROUND
 
@@ -79,7 +26,8 @@
                         body: payload.notification.body,
                         icon: payload.notification.icon
                     };
+                    // registration[1] refers to firebase service worker , registration[0] is create-react-app service worker
                     registrations[1].showNotification(notificationTitle, notificationOptions);
                 }
             });
-        });</script><script type="text/javascript" src="./static/js/main.30072445.js"></script></body></html>
+        });</script><script type="text/javascript" src="./static/js/main.0424bd15.js"></script></body></html>
