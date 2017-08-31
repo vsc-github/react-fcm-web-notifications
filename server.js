@@ -23,7 +23,7 @@ server.get('/api/notify-with-delay/:fcm', function (req, res) {
 server.use('/', express.static(__dirname + '/build'));
 
 function notify(res, to) {
-    var key = 'AAAAaxzCIxA:APA91bEjujdjrAqHhPb9MWtEpaMCKxa0i--K4KPfR5dtXqkhlmbtLOqm705_-NJ6kUOYqRwOBvurJId9yyr2UNkClgltWARrjYlcByXGE5wjaIMdBNZLf8irwiubOej79v461wnHJrM78LoZkRyLW4Wp2cNRYS1Vcg';
+    var key = process.env.FCM_SERVER_KEY;
     var notification = {
         'title': 'Wow! This works like a charm.',
         'body': 'What sorcery is this?',
