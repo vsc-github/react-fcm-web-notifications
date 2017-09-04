@@ -16,7 +16,8 @@ class Home extends Component {
         super();
 
         this.state = {
-            messaging : firebase.messaging()
+            messaging : firebase.messaging(),
+            permissionStateToggle: false
         };
 
         this.notifyMe = this.notifyMe.bind(this);
@@ -50,6 +51,7 @@ class Home extends Component {
                 // TODO(developer): Retrieve an Instance ID token for use with FCM.
                 // ...
                 // this.getToken();  WE ARE MAKING THIS MANUAL FOR THE EXAMPLE
+                this.setState({permissionStateToggle : true});
             })
             .catch(function(err) {
                 console.log('Unable to get permission to notify.', err);
@@ -96,6 +98,7 @@ class Home extends Component {
                     fcmToken={ this.props.fcm.fcmToken }
                     requestPermissionFunc={this.requestPermission}
                     getTokenFunc={this.getToken}
+                    permissionStateToggle={this.state.permissionStateToggle}
                 />
                 <Actions
                     fcmToken={ this.props.fcm.fcmToken }
